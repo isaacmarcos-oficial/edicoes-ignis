@@ -11,10 +11,17 @@ import {
 } from "lucide-react";
 import { Button } from "./button";
 import { Card, CardContent } from "./card";
-import { Sheet, SheetContent, SheetHeader, SheetTrigger } from "./sheet";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetHeader,
+  SheetTrigger,
+} from "./sheet";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { Avatar, AvatarFallback, AvatarImage } from "./avatar";
 import { Separator } from "./separator";
+import Link from "next/link";
 
 export const Header = () => {
   const { status, data } = useSession();
@@ -84,13 +91,17 @@ export const Header = () => {
               </Button>
             )}
 
-            <Button
-              variant="outline"
-              className="w-full  text-left justify-start gap-2"
-            >
-              <HomeIcon size={16} />
-              Início
-            </Button>
+            <SheetClose>
+              <Link href="/">
+                <Button
+                  variant="outline"
+                  className="w-full  text-left justify-start gap-2"
+                >
+                  <HomeIcon size={16} />
+                  Início
+                </Button>
+              </Link>
+            </SheetClose>
 
             <Button
               variant="outline"
@@ -100,13 +111,17 @@ export const Header = () => {
               Ofertas
             </Button>
 
-            <Button
-              variant="outline"
-              className="w-full  text-left justify-start gap-2"
-            >
-              <ListOrderedIcon size={16} />
-              Catálogo
-            </Button>
+            <SheetClose>
+              <Link href="/catalog">
+                <Button
+                  variant="outline"
+                  className="w-full  text-left justify-start gap-2"
+                >
+                  <ListOrderedIcon size={16} />
+                  Catálogo
+                </Button>
+              </Link>
+            </SheetClose>
           </div>
         </SheetContent>
       </Sheet>
