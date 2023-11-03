@@ -1,26 +1,23 @@
 import { ProductWithTotalPrice } from "@/helpers/product";
 import Image from "next/image";
 import { Badge } from "./badge";
-import { ArrowDown01Icon, ArrowDownIcon } from "lucide-react";
+import { ArrowDownIcon } from "lucide-react";
 
 interface ProductItemProps {
   product: ProductWithTotalPrice;
 }
 
-const ProductItem = ({ product }: ProductItemProps) => {
+const ProductItems = ({ product }: ProductItemProps) => {
   return (
-    <div className="flex flex-col gap-4 max-w-[156px] ">
-      <div className="relative flex bg-accent rounded-lg h-[170px] w-[156px] items-center justify-center">
+    <div className="flex min-w-[156px] flex-col gap-4">
+      <div className="relative flex aspect-square w-full items-center justify-center rounded-lg bg-accent">
         <Image
           src={product.imageUrls[0]}
           alt={product.name}
           height={0}
           width={0}
           sizes="100vw"
-          className="h-auto w-auto max-w[80%] max-h-[70%] "
-          style={{
-            objectFit: "contain",
-          }}
+          className="h-auto max-h-[70%] w-auto max-w-[80%] object-contain"
         />
 
         {product.discountPercentage > 0 && (
@@ -55,4 +52,4 @@ const ProductItem = ({ product }: ProductItemProps) => {
   );
 };
 
-export default ProductItem;
+export default ProductItems;
