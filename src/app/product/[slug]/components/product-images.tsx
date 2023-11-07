@@ -1,5 +1,4 @@
 "use client";
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -16,8 +15,8 @@ const ProductImages = ({ imageUrls, name }: ProductImagesProps) => {
   };
 
   return (
-    <div className="">
-      <div className="bg-accent h-[380px] w-full items-center justify-center">
+    <div className="flex flex-col">
+      <div className=" flex bg-accent h-[380px] w-full items-center justify-center">
         <Image
           src={currentImage}
           alt={name}
